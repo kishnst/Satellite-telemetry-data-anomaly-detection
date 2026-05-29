@@ -1,0 +1,144 @@
+{
+  "generated_at_utc": "2026-05-29T07:26:50.819439+00:00",
+  "random_state": 42,
+  "dataset": {
+    "n_samples": 6000,
+    "n_anomalies": 279,
+    "anomaly_rate_pct": 4.65,
+    "n_features_after_engineering": 43,
+    "train_samples": 4498,
+    "test_samples": 1500,
+    "sensor_channels": [
+      "battery_voltage_v",
+      "solar_current_a",
+      "cpu_temp_c",
+      "gyro_x_dps",
+      "gyro_y_dps",
+      "gyro_z_dps",
+      "comm_signal_dbm",
+      "storage_used_pct"
+    ]
+  },
+  "cross_validation": {
+    "random_forest_best_params": {
+      "clf__max_depth": 8,
+      "clf__min_samples_leaf": 5,
+      "clf__n_estimators": 100
+    },
+    "random_forest_cv_f1": 0.9468,
+    "gradient_boosting_best_params": {
+      "clf__learning_rate": 0.1,
+      "clf__max_depth": 5,
+      "clf__n_estimators": 120
+    },
+    "gradient_boosting_cv_f1": 0.902
+  },
+  "holdout_metrics": {
+    "Isolation Forest": {
+      "precision": 0.2125,
+      "recall": 0.24285714285714285,
+      "f1": 0.22666666666666666,
+      "roc_auc": 0.8018481518481518,
+      "confusion_matrix": [
+        [
+          1367,
+          63
+        ],
+        [
+          53,
+          17
+        ]
+      ]
+    },
+    "Random Forest (tuned)": {
+      "precision": 1.0,
+      "recall": 0.8714285714285714,
+      "f1": 0.9312977099236641,
+      "roc_auc": 0.9890609390609391,
+      "confusion_matrix": [
+        [
+          1430,
+          0
+        ],
+        [
+          9,
+          61
+        ]
+      ]
+    },
+    "Gradient Boosting (tuned)": {
+      "precision": 0.9523809523809523,
+      "recall": 0.8571428571428571,
+      "f1": 0.9022556390977443,
+      "roc_auc": 0.9849400599400598,
+      "confusion_matrix": [
+        [
+          1427,
+          3
+        ],
+        [
+          10,
+          60
+        ]
+      ]
+    }
+  },
+  "best_model": {
+    "name": "Random Forest (tuned)",
+    "metrics": {
+      "precision": 1.0,
+      "recall": 0.8714285714285714,
+      "f1": 0.9312977099236641,
+      "roc_auc": 0.9890609390609391,
+      "confusion_matrix": [
+        [
+          1430,
+          0
+        ],
+        [
+          9,
+          61
+        ]
+      ]
+    },
+    "classification_report": {
+      "normal": {
+        "precision": 0.9937456567060459,
+        "recall": 1.0,
+        "f1-score": 0.9968630184733357,
+        "support": 1430.0
+      },
+      "anomaly": {
+        "precision": 1.0,
+        "recall": 0.8714285714285714,
+        "f1-score": 0.9312977099236641,
+        "support": 70.0
+      },
+      "accuracy": 0.994,
+      "macro avg": {
+        "precision": 0.9968728283530229,
+        "recall": 0.9357142857142857,
+        "f1-score": 0.9640803641984999,
+        "support": 1500.0
+      },
+      "weighted avg": {
+        "precision": 0.9940375260597637,
+        "recall": 0.994,
+        "f1-score": 0.993803304074351,
+        "support": 1500.0
+      }
+    }
+  },
+  "top_feature_importances_random_forest": {
+    "storage_used_pct_roll_std": 0.1726,
+    "storage_used_pct_z": 0.1348,
+    "storage_used_pct_delta": 0.099,
+    "storage_used_pct": 0.0952,
+    "thermal_per_volt": 0.0409,
+    "cpu_temp_c": 0.0289,
+    "comm_signal_dbm": 0.0243,
+    "comm_signal_dbm_delta": 0.0227,
+    "cpu_temp_c_z": 0.0226,
+    "battery_voltage_v": 0.0218
+  }
+}

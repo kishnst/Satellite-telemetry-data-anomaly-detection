@@ -18,6 +18,11 @@ Space_track/
 ├── src/
 │   └── telemetry_simulator.py   # synthetic dataset generator
 ├── data/                        # optional exported CSV
+├── results/
+│   └── metrics.json             # machine-readable metrics (from evaluate.py)
+├── RESULTS.md                   # summary tables & notebook outputs
+├── scripts/
+│   └── evaluate.py              # regenerate metrics
 └── notebooks/
     └── satellite_anomaly_detection.ipynb
 ```
@@ -36,6 +41,7 @@ jupyter notebook notebooks/satellite_anomaly_detection.ipynb
 
 ```bash
 python -m src.telemetry_simulator
+python scripts/evaluate.py   # writes results/metrics.json; see RESULTS.md
 ```
 
 ## Method overview
